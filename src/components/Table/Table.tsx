@@ -2,16 +2,18 @@ import React from "react";
 import * as S from "./Table.styled";
 
 const Table: React.FC<TableProps> = ({ data }) => {
+  const [tableData, setTableData] = React.useState(data);
+
+  const columns = [
+    { label: "Artist", accessor: "artist_title" },
+    { label: "Title", accessor: "title" },
+    { label: "Origin", accessor: "place_of_origin" },
+    { label: "Department", accessor: "department_title" },
+  ];
+
   return (
     <S.Table>
-      <thead>
-        <tr>
-          <th>Artist</th>
-          <th>Title</th>
-          <th>Origin</th>
-          <th>Department</th>
-        </tr>
-      </thead>
+      <TableHead columns={columns} />
       <tbody>
         {data.map((item) => (
           <tr key={item.id}>

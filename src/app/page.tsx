@@ -16,7 +16,7 @@ export default function Home() {
         <LoadingSpinner />
       ) : (
         <>
-          <Table data={data} />
+          {/* <Table data={data} /> */}
           <ArtworkList data={data} />
         </>
       )}
